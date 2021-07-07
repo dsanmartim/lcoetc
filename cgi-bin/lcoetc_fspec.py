@@ -1,11 +1,12 @@
-#!/Users/gblanc/anaconda3/bin/python
+#!/home/dsanmartim/miniconda3/envs/lcoetc_env/bin/python
 
 import os,sys
 import cgi
 import cgitb; cgitb.enable()
 
 # set HOME environment variable to a directory the httpd server can write to
-os.environ["HOME"] = '/Users/gblanc/lcoetc'
+#os.environ["HOME"] = '/Users/gblanc/lcoetc'
+os.environ["HOME"] = '/home/dsanmartim/public_html/lcoetc'
 
 os.environ["XDG_CONFIG_HOME"] = '$HOME'
 os.environ["XDG_CACHE_HOME"] = '$HOME'
@@ -247,13 +248,17 @@ def mkstnaper(neobj2d, nenoise2d, aper):
 # ==================================================
 
 # PROGRAM STARTS HERE
+# User root dir
+usr_dir = '/home/dsanmartim/public_html'
 
 # LCOETC Database directory
-dbdir='/Users/gblanc/lcoetc/database'
+#dbdir='/Users/gblanc/lcoetc/database'
+dbdir=usr_dir+'/lcoetc/database'
 
 # Temporary output directory
 #tmpdir='/Users/gblanc/lcoetc/tmp'
-tmpdir='/Users/gblanc/Sites/lcoetc/tmp'
+#tmpdir='/Users/gblanc/Sites/lcoetc/tmp'
+tmpdir=usr_dir+'/lcoetc/tmp'
 
 # Remove temporary files
 if os.path.isfile(tmpdir+"/lcoetc_out.dat"):
@@ -539,22 +544,23 @@ print("<br/>")
 
 print("<center>")
 
-# print('<a href="http://alyth.lco.cl/gblanc_www/lcoetc/lcoetc_sspec.html" download>Return to LCO ETC</a>')
-# print("<br/>")
-# print("<br/>")
-
-print('<a href="http://alyth.lco.cl/~gblanc/lcoetc/tmp/lcoetc_out.dat" download>Download ASCII Table with Results</a>')
+print('<a href="../lcoetc/html/lcoetc_fspec.html">Return to LCO ETC</a>')
+print("<br/>")
 print("<br/>")
 
-print('<a href="http://alyth.lco.cl/~gblanc/lcoetc/tmp/lcoetc_out.fits" download>Download FITS with Simulated 2D Spectrum</a>')
+print('<a href="../lcoetc/tmp/lcoetc_out.dat" download>Download ASCII Table with Results</a>')
 print("<br/>")
 
-print('<a href="http://alyth.lco.cl/~gblanc/lcoetc/tmp/lcoetc_out.png" download>Download Plots</a>')
+print('<a href="../lcoetc/tmp/lcoetc_out.fits" download>Download FITS with Simulated 2D Spectrum</a>')
+print("<br/>")
+
+print('<a href="../lcoetc/tmp/lcoetc_out.png" download>Download Plots</a>')
 print("<br/>")
 
 print("<br/>")
 
-print('<img src="http://alyth.lco.cl/~gblanc/lcoetc/tmp/lcoetc_out.png">')
+print('<img src="../lcoetc/lcoetc/tmp/lcoetc_out.png">')
+
 
 print("</center>")
 
